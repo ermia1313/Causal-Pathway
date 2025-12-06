@@ -1,1 +1,8 @@
+#!/usr/bin/env bash
+set -e
 
+bash scripts/01_prepare_ld_blocks.sh
+bash scripts/02_snps_to_genes.sh
+bash scripts/03_prepare_pway_jobs.sh
+bash scripts/04_combine_pway_results.sh
+bash scripts/05_build_ensg_hugo_snp_table.sh
