@@ -3,52 +3,6 @@ set -e
 
 bash scripts/01_prepare_ld_blocks.sh
 
-# compute the LD blocks
-plink \
-  --bfile ./GENOME/1KG_LD_CEU_hg19/EUR \
-  --show-tags <( \
-  tail -n +2 list_rsID_CAUSE.txt | cut -d $'\t' -f 1 \
-    ) \
-  --tag-r2 0.1 \
-  --tag-kb 250 \
-  --list-all
 
-wc -l plink.tags.list
-# 2491  r2 = 0.1
-# 2491  r2 = 0.6
-wc -l list_rsID_CAUSE.txt
-# 2491 => same as above, perfect!
-
-
-# get pairwise r2's
-#  => output file too large...
-# /home/mparis15/PLINK/plink \
-#   --bfile ./GENOME/1KG_LD_CEU_hg19/EUR \
-#   --r2 \
-#   --ld-window 99999  \
-#   --ld-window-r2 0.1 \
-#   --ld-window-kb 250
-
-
-rm list_hugo_CAUSE.txt
-
-
-
-tail -n +2 plink.tags.list \
-  | tr -s ' ' $'\t' \
-  | cut -d $'\t' -f 2,9 \
-  | tr $'\t' '|' \
-  > plink.tags.list2
-wc -l plink.tags.list2
-# 2490, with NO header line
-
-
-
-cd /dev/shm/
-zcat ./rsID_ENSG.txt.gz \
-  | awk 'BEGIN {FS="\t";OFS="\t"} \
-    { ids=substr( $1, length($1)-2 ); \
-    print  > ( "rsID_ENSG."ids".txt" ) }'
-wc -l rsID_ENSG.???.txt
 
 
