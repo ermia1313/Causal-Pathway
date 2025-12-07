@@ -122,3 +122,19 @@ Human_PFOCR_fgsea.gmt
 Human_Reactome_fgsea.gmt
 Human_TFs_fgsea.gmt
 Human_WikiPathways_fgsea.gmt
+
+GO Term Clustering and Redundancy Reduction
+
+GO enrichment often produces long lists of overlapping and hierarchically related terms, which are hard to interpret.
+
+To improve interpretability:
+
+We consider significant GO terms with nominal p ≤ 0.05.
+
+We compute semantic similarity between GO terms using the rrvgo R package.
+
+We cluster GO terms into groups based on semantic similarity.
+
+We adjust for multiple testing at the cluster level using Bonferroni, by dividing the nominal threshold (0.05) by the number of GO clusters.
+
+This generates a reduced, non-redundant set of representative GO terms for interpretation.
