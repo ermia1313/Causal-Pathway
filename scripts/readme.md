@@ -36,8 +36,6 @@ Build list_ensg_hugo_snp_delta_delta2.txt, which links ENSG IDs, HUGO symbols, S
 
 Optionally generate ECDF plots and other diagnostics for wELPD distributions.
 
-Inputs and Outputs
-
 # Key inputs
 
 list_rsID_CAUSE.txt
