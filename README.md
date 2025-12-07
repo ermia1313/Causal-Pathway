@@ -123,7 +123,7 @@ Human_Reactome_fgsea.gmt
 Human_TFs_fgsea.gmt
 Human_WikiPathways_fgsea.gmt
 
-## GO Term Clustering and Redundancy Reduction
+# GO Term Clustering and Redundancy Reduction
 
 GO enrichment often produces long lists of overlapping and hierarchically related terms, which are hard to interpret.
 
