@@ -59,6 +59,8 @@ We perform **two separate tests** per pathway:
 - **Pleiotropy test** – using genes with **positive** wELPD
 
 Let:
+<img width="580" height="111" alt="image" src="https://github.com/user-attachments/assets/56070101-ca01-4850-a193-c7b9f71894f8" />
+
 
 - \( N \) = number of in-pathway genes considered (negative or positive, depending on the test)
 - \( S_{\text{obs}} \) = sum of wELPD values for those \( N \) in-pathway genes
