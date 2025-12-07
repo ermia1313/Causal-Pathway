@@ -59,23 +59,19 @@ We perform **two separate tests** per pathway:
 - **Pleiotropy test** – using genes with **positive** wELPD
 
 Let:
+
+- N = number of in-pathway genes considered (negative or positive, depending on the test)
+- obs = sum of wELPD values for those N in-pathway genes
+- rand = sum of wELPD values from N genes randomly drawn from the appropriate **outside-pathway** pool
+
+We generate up to T = 10^7 random samples and compute an empirical p-value:
+
 <img width="580" height="111" alt="image" src="https://github.com/user-attachments/assets/56070101-ca01-4850-a193-c7b9f71894f8" />
-
-
-- \( N \) = number of in-pathway genes considered (negative or positive, depending on the test)
-- \( S_{\text{obs}} \) = sum of wELPD values for those \( N \) in-pathway genes
-- \( S_{\text{rand}} \) = sum of wELPD values from \( N \) genes randomly drawn from the appropriate **outside-pathway** pool
-
-We generate up to \( T = 10^7 \) random samples and compute an empirical p-value:
-
-\[
-p = \frac{1}{T} \sum_{i=1}^{T} I\left(\left|S_{\text{rand}, i}\right| \ge \left|S_{\text{obs}}\right|\right)
-\]
 
 Interpretation:
 
-- If **\( S_{\text{rand}} > S_{\text{obs}} \)** is frequent → pathway behaves more like a **pleiotropic** set (positive direction).
-- If **\( S_{\text{rand}} < S_{\text{obs}} \)** is frequent → pathway behaves more like a **causal** set (negative direction).
+- If **(sum - rand > sum - obs** is frequent → pathway behaves more like a **pleiotropic** set (positive direction).
+- If **(sum - rand < sum - obs** is frequent → pathway behaves more like a **causal** set (negative direction).
 
 Multiple testing correction is performed within each direction:
 
