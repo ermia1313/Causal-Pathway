@@ -31,11 +31,11 @@ For each tag SNP:
 
 1. We identify all **tagged SNPs** in its LD block (r² ≥ 0.1).
 2. Each tagged SNP inherits the tag’s ELPD delta, **scaled by its LD**:
-   \[
-   \text{wELPD}_{\text{tagged}} = \text{ELPD}_\text{tag} \times r^2(\text{tagged}, \text{tag})
-   \]
-3. SNPs are intersected with gene coordinates; each gene inherits the wELPD values of intersecting SNPs.
-4. For each gene, we retain the most extreme (largest |delta|) LD-weighted ELPD, so longer genes do not dominate purely by size (LD decays with distance).
+
+wELPD_tagged = ELPD_tag x r^2(tagged)
+
+4. SNPs are intersected with gene coordinates; each gene inherits the wELPD values of intersecting SNPs.
+5. For each gene, we retain the most extreme (largest |delta|) LD-weighted ELPD, so longer genes do not dominate purely by size (LD decays with distance).
 
 This produces a file of the form:
 
